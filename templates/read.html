@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <title>Leituras</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">    
+    </head>
+    <body>
+        <h1 style="text-align: center;">Leituras</h1>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <table class="table">
+                        <thead>
+                            <th>Livro</th>
+                            <th>Autor</th>
+                            <th>Gênero</th>
+                            <th>Ano de Lançamento</th>
+                            <th>Número de Páginas</th>
+                            <th>Editora</th>
+                            <th></th>
+                        </thead>
+                        <tbody>
+                            {% for book in read %}
+                            <tr>
+                                <td>{{book.livro}}</td>
+                                <td>{{book.autor}}</td>
+                                <td>{{book.genero}}</td>
+                                <td>{{book.lancamento}}</td>
+                                <td>{{book.paginas}}</td>
+                                <td>{{book.editora}}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
