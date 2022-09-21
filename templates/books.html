@@ -30,7 +30,9 @@
                                 <td>{{book.pages}}</td>
                                 <td>{{book.publisher}}</td>
                                 <td>
-                                    <button type="button" class="btn btn-outline-dark">Add Book to Reading</button>
+                                    <form method="post">
+                                    <input type="submit" value="Add Book to Reading" class="btn btn-outline-dark" name="AddBook_Name" id="AddBookName">
+                                    </form>
                                 </td>
                                 
                             </tr>

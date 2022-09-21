@@ -1,7 +1,6 @@
 from urllib.parse import _ResultMixinStr
 from flask import Blueprint, render_template
-from flask import Flask, escape, request
-
+from flask import Flask, escape, request, redirect, url_for
 from ..models.reading import Reading
 from ..extensions import db
 from ..models.books import Books
@@ -9,14 +8,15 @@ from ..models.books import Books
 
 booksBp = Blueprint('livrosBp', __name__)
 
-@booksBp.route('/books')
+@booksBp.route('/books', methods=['GET', 'POST'])
 def books_list():
     db.create_all()
 
     books_query = Books.query.all()
+
     return render_template('books.html', books = books_query, title='Books')
 
-@booksBp.route('/reading')
+@booksBp.route('/reading', methods=['GET', 'POST'])
 def reading_list():
     db.create_all()
 

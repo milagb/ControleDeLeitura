@@ -31,7 +31,9 @@
                                 <td>{{book.pages}}</td>
                                 <td>{{book.publisher}}</td>
                                 <td>
-                                    <button type="button" class="btn btn-outline-dark">Remove Book</button>
+                                    <form method="post">
+                                    <button type="submit" class="btn btn-outline-dark" name="RemoveBook_Name" id="RemoveBookName">Remove Book</button>
+                                    </form>
                                 </td>
                             </tr>
                             {% endfor %}
