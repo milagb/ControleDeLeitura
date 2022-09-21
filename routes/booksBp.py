@@ -26,7 +26,7 @@ def reading_list():
     for tuple in books_query:   
         result.append(tuple[0])
 
-    return render_template('books.html', books = result, title='Reading')
+    return render_template('reading.html', books = result, title='Reading')
 
 @booksBp.route('/add_book', methods=['GET', 'POST'])
 def add_book():
