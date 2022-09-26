@@ -1,4 +1,5 @@
 from urllib.parse import _ResultMixinStr
+from xml.dom.minidom import Identified
 from flask import Blueprint, render_template
 from flask import Flask, escape, request, redirect, url_for
 from ..models.reading import Reading
@@ -13,8 +14,18 @@ def books_list():
     db.create_all()
 
     books_query = Books.query.all()
+    
+
+    # if request.method == 'POST':
+    #     book_id=0
+    #     book_query = Books.query.filter_by(id = book_id).first()
+    #     print(book_query)
+
+    #     db.session.add(book_query)   
+    #     db.session.commit()
 
     return render_template('books.html', books = books_query, title='Books')
+
 
 @booksBp.route('/reading', methods=['GET', 'POST'])
 def reading_list():
@@ -43,4 +54,18 @@ def add_book():
         #     print(f'{key}: {value}')
 
     return render_template('insertbook.html', title='Insert New Books')
+    # return redirect(url_for('/books'))
+
+@booksBp.route('/books/update/<book_id>', methods=['GET', 'POST'])
+def update_book(book_id=0):
+    book_query = Books.query.filter_by(id = book_id).first()
+    print(book_query)
     
+    if request.method == 'POST':
+        book = Reading(book_id = book_id)
+        print('oi', book)
+        db.session.add(book)   
+        db.session.commit()
+
+    # return render_template('reading.html', book=book_query)
+    return redirect(url_for("livrosBp.reading_list"))

@@ -7,40 +7,42 @@
     </head>
     <body>
         <h1 style="text-align: center;">{{title}}</h1>
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12">
-                    <table class="table">
-                        <thead>
-                            <th>Name</th>
-                            <th>Writer</th>
-                            <th>Genre</th>
-                            <th>Release</th>
-                            <th>Pages</th>
-                            <th>Publisher</th>
+        <form method="post" action="">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <table class="table">
+                            <thead>
+                                <th>Name</th>
+                                <th>Writer</th>
+                                <th>Genre</th>
+                                <th>Release</th>
+                                <th>Pages</th>
+                                <th>Publisher</th>
 
-                            <th></th>
-                        </thead>
-                        <tbody>
-                            {% for book in books %}
-                            <tr>
-                                <td>{{book.name}}</td>
-                                <td>{{book.writer}}</td>
-                                <td>{{book.genre}}</td>
-                                <td>{{book.release}}</td>
-                                <td>{{book.pages}}</td>
-                                <td>{{book.publisher}}</td>
-                                <td>
-                                    <form method="post">
-                                    <button type="submit" class="btn btn-outline-dark" name="RemoveBook_Name" id="RemoveBookName">Remove Book</button>
-                                    </form>
-                                </td>
-                            </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
+                                <th></th>
+                            </thead>
+                            <tbody>
+                                {% for book in books %}
+                                <tr>
+                                    <td>{{book.name}}</td>
+                                    <td>{{book.writer}}</td>
+                                    <td>{{book.genre}}</td>
+                                    <td>{{book.release}}</td>
+                                    <td>{{book.pages}}</td>
+                                    <td>{{book.publisher}}</td>
+                                    <td>
+                                        
+                                        <button type="submit" class="btn btn-outline-dark" name="RemoveBook_Name" id="RemoveBookName">Remove Book</button>
+                                        
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
-        </div>
+        </form>
     </body>
 </html>

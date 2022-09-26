@@ -7,6 +7,7 @@
     </head>
     <body>
         <h1 style="text-align: center;">{{title}}</h1>
+        <form method="post" action="">
         <div class="container">
             <div class="row">
                 <div class="col-xs-12">
@@ -30,9 +31,15 @@
                                 <td>{{book.pages}}</td>
                                 <td>{{book.publisher}}</td>
                                 <td>
-                                    <form method="post">
-                                    <input type="submit" value="Add Book to Reading" class="btn btn-outline-dark" name="AddBook_Name" id="AddBookName">
+                                   
+                                    <!-- <a 
+                                    href="/books/update/{{book.id}}"  type="submit" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Add Book to Reading
+                                    </a> -->
+                                    <form action="/books/update/{{book.id}}" method="post">
+                                        <button type="submit" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Add Book to Reading></button>
                                     </form>
+                                    <!-- <input type="submit" href="/books/update/{{book.id}}" class="btn btn-primary"> -->
+
                                 </td>
                                 
                             </tr>
@@ -42,5 +49,6 @@
                 </div>
             </div>
         </div>
+    </form>
     </body>
 </html>
