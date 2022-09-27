@@ -53,19 +53,28 @@ def add_book():
         # for key, value in request.form.items():
         #     print(f'{key}: {value}')
 
-    return render_template('insertbook.html', title='Insert New Books')
-    # return redirect(url_for('/books'))
+    # return render_template('insertbook.html', title='Insert New Books')
+    return redirect(url_for('/books'))
 
 @booksBp.route('/books/update/<book_id>', methods=['GET', 'POST'])
 def update_book(book_id=0):
-    book_query = Books.query.filter_by(id = book_id).first()
-    print(book_query)
+    # book_query = Books.query.filter_by(id = book_id).first()
+    # print(book_query)
     
     if request.method == 'POST':
         book = Reading(book_id = book_id)
-        print('oi', book)
         db.session.add(book)   
         db.session.commit()
 
-    # return render_template('reading.html', book=book_query)
     return redirect(url_for("livrosBp.reading_list"))
+
+
+@booksBp.route('/book/dlt/<book_id>', methods=['GET', 'POST'])
+def dlt_book(book_id):
+    if request.method == 'POST':
+        book_query = Reading.query.filter_by(book_id = book_id).first()
+        db.session.delete(book_query)   
+        db.session.commit()
+
+    return redirect(url_for("livrosBp.reading_list"))
+  
